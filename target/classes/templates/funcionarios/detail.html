@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"/><title>Detalhe Funcionário</title><link rel="stylesheet" th:href="@{/css/style.css}" /></head>
+<body>
+  <header><div class="container"><h2>Detalhe do Funcionário</h2></div></header>
+  <div class="container">
+    <h3>Funcionário: <span th:text="${funcionario.nome}">Nome</span></h3>
+    <p><strong>Email:</strong> <span th:text="${funcionario.email}">email</span></p>
+    <p><strong>Data de Admissão:</strong> <span th:text="${funcionario.dataAdmissao}">2025-01-01</span></p>
+    <p><strong>Departamento:</strong> <span th:text="${funcionario.departamento != null ? funcionario.departamento.nome : '-'}">Dep</span></p>
+    <p><a th:href="@{/mvc/funcionarios}">Voltar</a></p>
+  </div>
+</body>
+</html>

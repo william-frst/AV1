@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"/><title>Formulário Funcionário</title><link rel="stylesheet" th:href="@{/css/style.css}" /></head>
+<body>
+  <header><div class="container"><h2>Funcionário</h2></div></header>
+  <div class="container">
+    <h3 th:text="${funcionario.id} != null ? 'Editar Funcionário' : 'Novo Funcionário'">Form</h3>
+    <form th:action="@{/mvc/funcionarios/salvar}" th:object="${funcionario}" method="post">
+      <input type="hidden" th:field="*{id}"/>
+      <div>
+        <label>Nome:</label>
+        <input th:field="*{nome}" />
+      </div>
+      <div>
+        <label>Email:</label>
+        <input th:field="*{email}" />
+      </div>
+      <div>
+        <label>Data Admissão (YYYY-MM-DD):</label>
+        <input th:field="*{dataAdmissao}" />
+      </div>
+      <div>
+        <label>Departamento:</label>
+        <select th:field="*{departamentoId}">
+          <option th:each="d : ${departamentos}" th:value="${d.id}" th:text="${d.nome}">Dept</option>
+        </select>
+      </div>
+      <button type="submit">Salvar</button>
+    </form>
+    <p><a th:href="@{/mvc/funcionarios}">Voltar</a></p>
+  </div>
+</body>
+</html>
