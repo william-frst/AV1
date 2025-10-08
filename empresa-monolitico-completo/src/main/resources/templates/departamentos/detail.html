@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"/><title>Detalhe Departamento</title><link rel="stylesheet" th:href="@{/css/style.css}" /></head>
+<body>
+  <header><div class="container"><h2>Detalhe do Departamento</h2></div></header>
+  <div class="container">
+    <h3>Departamento: <span th:text="${departamento.nome}">Nome</span></h3>
+    <p><strong>Localização:</strong> <span th:text="${departamento.localizacao}">Local</span></p>
+    <h4>Funcionários</h4>
+    <ul>
+      <li th:each="f : ${departamento.funcionarios}" th:text="${f.nome}">Funcionario</li>
+    </ul>
+    <p><a th:href="@{/mvc/departamentos}">Voltar</a></p>
+  </div>
+</body>
+</html>
